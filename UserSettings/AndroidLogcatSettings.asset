@@ -1,101 +1,17 @@
 {
-    "m_SelectedDeviceId": "R9AM91G9GRJ",
+    "m_SelectedDeviceId": "RF8N40DB89N",
     "m_SelectedPackage": {
-        "deviceId": "R9AM91G9GRJ",
+        "deviceId": "RF8N40DB89N",
         "name": "com.DefaultCompany.Snake_Fossy",
-        "processId": 3588,
+        "processId": 6848,
         "exited": true
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 31380,
-            "exited": true
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 32122,
-            "exited": true
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 6704,
-            "exited": true
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 7481,
-            "exited": true
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 20765,
-            "exited": true
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
             "name": "com.sec.android.app.launcher",
             "processId": 2721,
-            "exited": false
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 27704,
-            "exited": false
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 29243,
-            "exited": false
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 30140,
-            "exited": false
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 30656,
-            "exited": false
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 30977,
-            "exited": false
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 31600,
-            "exited": false
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 1039,
-            "exited": false
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 5259,
-            "exited": false
-        },
-        {
-            "deviceId": "R9AM91G9GRJ",
-            "name": "com.DefaultCompany.Snake_Fossy",
-            "processId": 22416,
             "exited": false
         },
         {
@@ -108,6 +24,180 @@
             "deviceId": "R9AM91G9GRJ",
             "name": "com.DefaultCompany.Snake_Fossy",
             "processId": 3588,
+            "exited": true
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 14386,
+            "exited": true
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 16464,
+            "exited": true
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 19098,
+            "exited": true
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 21598,
+            "exited": true
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 23363,
+            "exited": true
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 24500,
+            "exited": false
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 25841,
+            "exited": false
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 27554,
+            "exited": false
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 29048,
+            "exited": false
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 29876,
+            "exited": false
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 30698,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 16667,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 4961,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 13985,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 14787,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 3752,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 18081,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 30120,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 704,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 5295,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 10675,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 18361,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 22001,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 26566,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 1676,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 6706,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 13847,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 30986,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8N40DB89N",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 6848,
             "exited": true
         }
     ],
@@ -161,7 +251,7 @@
         "MemoryGroup": 2,
         "Behavior": 1
     },
-    "m_Filter": "",
-    "m_FilterIsRegularExpression": false,
+    "m_Filter": "Touch",
+    "m_FilterIsRegularExpression": true,
     "m_SymbolPaths": []
 }

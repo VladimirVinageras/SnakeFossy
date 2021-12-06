@@ -1188,16 +1188,16 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.9
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: -1
+    m_Resolution: 0
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.165
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1230,7 +1230,7 @@ Light:
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -1337,7 +1337,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
@@ -1346,14 +1345,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -1520,17 +1511,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e19e0dc15ac0ab45bb9714e642b076f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTimer: 30
+  gameTimer: 20
   toEatColors:
   - {r: 1, g: 0.9813726, b: 0, a: 1}
   - {r: 1, g: 0.5278747, b: 0, a: 1}
   - {r: 0, g: 1, b: 0.2665193, a: 1}
-  - {r: 0.6891157, g: 0, b: 0.990566, a: 1}
+  - {r: 1, g: 0.21226418, b: 0.95235467, a: 1}
   toAVoidColors:
   - {r: 0, g: 1, b: 0.99233127, a: 1}
-  - {r: 0.43867922, g: 0.6322633, b: 1, a: 1}
-  - {r: 0.9716981, g: 0, b: 0.9155156, a: 1}
-  - {r: 0.07510145, g: 0.6981132, b: 0.016464932, a: 1}
+  - {r: 0.43921566, g: 0.6462413, b: 1, a: 1}
+  - {r: 0.49285594, g: 0.01201493, b: 0.8490566, a: 1}
+  - {r: 0.6661989, g: 0, b: 0.8301887, a: 1}
   diamondsScore: {fileID: 1562419342}
   peopleScore: {fileID: 133748085}
   gameOverText: {fileID: 2144814048}
@@ -1569,6 +1560,11 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.34774926
       objectReference: {fileID: 0}
+    - target: {fileID: 2041230044107142726, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3808208768393288759, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
         type: 3}
       propertyPath: _playerMoveForwardSpeed
@@ -1577,12 +1573,32 @@ PrefabInstance:
     - target: {fileID: 3808208768393288759, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
         type: 3}
       propertyPath: _playerMoveLateralSpeed
-      value: 8
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4516365633193735772, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
         type: 3}
       propertyPath: m_Name
       value: Snake
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993192765767763919, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993192765767763919, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993192765767763919, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993192765767763919, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
+        type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6097989825911298394, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
         type: 3}
@@ -1592,7 +1608,7 @@ PrefabInstance:
     - target: {fileID: 6097989825911298394, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6097989825911298394, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
         type: 3}
@@ -1642,7 +1658,7 @@ PrefabInstance:
     - target: {fileID: 6962967089604319661, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
         type: 3}
       propertyPath: followSpeed
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6962967089604319661, guid: 42c5ff9a4f9d47046bd4ee5d5b1b97e9,
         type: 3}
@@ -2208,7 +2224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1787538703
 RectTransform:
   m_ObjectHideFlags: 0

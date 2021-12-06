@@ -19,6 +19,7 @@ TagManager:
   - toAvoidPeople
   - toEatPeople
   - PainterPlane
+  - FinishStep
   layers:
   - Default
   - TransparentFX

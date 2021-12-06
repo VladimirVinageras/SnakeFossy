@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float gameTimer; // 30 for a 40 seconds level if player speed is 8
+    [SerializeField] private float gameTimer; // 20 seconds level if player speed is 6
     [SerializeField] private List<Color> toEatColors;
     [SerializeField] private List<Color> toAVoidColors;
     private int сolorToEatListPointer = 0;
@@ -72,9 +70,11 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isTimeOut = false;
+        сolorToEatListPointer = 0;
+        сolorToAvoidListPointer = 0;
         gameOverScreen.SetActive(false);
         wellDoneScreen.SetActive(false);
-        controlsScreen.SetActive(true);
+       // controlsScreen.SetActive(true);   //Check enable if is active another variant of controls in player controller
         restartButton.gameObject.SetActive(false);
         diamondsScore.text = "0" ;
         peopleScore.text = "0";
@@ -137,32 +137,23 @@ public class GameManager : MonoBehaviour
 
     public Color GetColorForPeopleToEat()
     {
-        Color pColor = toEatColors[сolorToEatListPointer];
-        Debug.Log(pColor +" in "+сolorToEatListPointer +"Position");
-        сolorToEatListPointer++;
-        if (toEatColors.Count < сolorToEatListPointer)
+        if ( сolorToEatListPointer >= toEatColors.Count )
         {
-            Debug.Log(toEatColors.Count);
-            Debug.Log(сolorToEatListPointer);
             сolorToEatListPointer = 0;
         }
-
-        return pColor;
+        Color pColorToEat = toEatColors[сolorToEatListPointer];
+        сolorToEatListPointer++;
+        return pColorToEat;
     }
 
-    
-    public Color GetColorForPeopleToAvoid()
+        public Color GetColorForPeopleToAvoid()
     {
-        Color pColor = toAVoidColors[сolorToAvoidListPointer];
-        Debug.Log(pColor +" in "+сolorToAvoidListPointer +"Position");
-        сolorToAvoidListPointer++;
-        if (toAVoidColors.Count < сolorToAvoidListPointer)
+        if (сolorToAvoidListPointer >=toAVoidColors.Count )
         {
-            Debug.Log(toEatColors.Count);
-            Debug.Log(сolorToAvoidListPointer);
             сolorToAvoidListPointer = 0;
         }
-
-        return pColor;
+        Color pColorToAvoid = toAVoidColors[сolorToAvoidListPointer];
+        сolorToAvoidListPointer++;
+        return pColorToAvoid;
     }
 }

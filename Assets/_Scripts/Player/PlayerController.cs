@@ -18,18 +18,20 @@ public class PlayerController : MonoBehaviour
 
     private float 
         leftXBound, 
-        rightXBound; 
+        rightXBound,
+        deltaXPosition; 
     
     
     //Game variables
 
     [SerializeField] float feverTime = 5F;
     private bool isFeverRush;
-    private float _horizontalInput, _verticalInput;
-    private Vector3 snakePosition, TouchPosition;
+    private float _horizontalInput;
+    private Vector3 snakePosition, touchPosition ;
     private int diamondsCounter = 0; 
     
-    
+    //Inpput Variables
+    private Touch touch;
     
     // Start is called before the first frame update
     
@@ -42,38 +44,76 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-    #if USING_MOBILE
+#if USING_MOBILE
         snakePosition = transform.forward * _playerMoveForwardSpeed;
 
         if (!isFeverRush)
         {
+            /*  if (Input.touchCount > 0)                                      //If is used this variant, is necessary to set active UI/ControlsScreen 
+              {
+                  Vector3 touchPosition = Input.GetTouch(0).position;
+                  Debug.Log("TouchPosition is " + touchPosition);
+  
+                  if (touchPosition.x > Screen.width * 0.5f)
+                  {
+                      snakePosition += transform.right * _playerMoveLateralSpeed;
+                  }
+                  else
+                  {
+                      snakePosition -= transform.right * _playerMoveLateralSpeed;
+  
+                  }
+            gameObject.transform.position += snakePosition * Time.deltaTime;
+            CheckBounds();
+          }
+          else
+          {
+              gameObject.transform.position += snakePosition * Time.deltaTime;
+          }
+          */
+
+
             if (Input.touchCount > 0)
             {
-                Vector3 touchPosition = Input.GetTouch(0).position;
-                Debug.Log("TouchPosition is " + touchPosition);
+                touch = Input.GetTouch(0);
 
-                if (touchPosition.x > Screen.width * 0.5f)
+                if (touch.phase == TouchPhase.Moved)
                 {
-                    snakePosition += transform.right * _playerMoveLateralSpeed;
-                }
-                else
-                {
-                    snakePosition -= transform.right * _playerMoveLateralSpeed;
+                    transform.position +=
+                        Vector3.right *
+                        (touch.deltaPosition.x * _playerMoveLateralSpeed * Time.deltaTime); // _playerMoveLateralSpeed *
 
                 }
-
             }
-            gameObject.transform.position += snakePosition * Time.deltaTime;
+
+            transform.position += Vector3.forward * _playerMoveForwardSpeed * Time.deltaTime;
             CheckBounds();
         }
         else
         {
             gameObject.transform.position += snakePosition * Time.deltaTime;
         }
+ #else
+         snakePosition = transform.forward * _playerMoveForwardSpeed;
+         if (!isFeverRush)
+         {
+             _horizontalInput = Input.GetAxis("Horizontal");
+             transform.Translate(Vector3.right * _playerMoveLateralSpeed * _horizontalInput* 20F * Time.deltaTime);
+         }
+         
+         transform.position += Vector3.forward * _playerMoveForwardSpeed * Time.deltaTime;
+         CheckBounds();
+
+
+
+
 
 #endif
-        }
-    
+        
+        
+
+    }
+
     void CheckBounds()
     
     {

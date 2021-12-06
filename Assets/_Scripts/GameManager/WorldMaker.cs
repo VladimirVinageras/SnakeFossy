@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using UnityEditor;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -26,7 +21,7 @@ public class WorldMaker : MonoBehaviour
     
     private float distanceBetweenSteps;
 
-    private bool isFinishCreated;
+    private bool isFinishCreated, isRoadUpdated;
 
     private Vector3 stepPosition, waterPlanePosition ;
      
@@ -48,7 +43,7 @@ public class WorldMaker : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.Instance.IsTimeOut && GameManager.Instance.RushCounter < 4)
+        if (!GameManager.Instance.IsTimeOut && GameManager.Instance.RushCounter <= 2)
         {
             if (_rigidbodyPlayer.transform.position.z >= (peopleRoadStep.transform.lossyScale.z +
                                                           (roadComplexCounter * 3 *
@@ -77,7 +72,21 @@ public class WorldMaker : MonoBehaviour
                 isFinishCreated = true;
                
             }
+
+           if (GameManager.Instance.RushCounter >= 3 && !isRoadUpdated)
+            {
+                stepPosition = stepPosition + Vector3.forward * distanceBetweenSteps;
+                Vector3 newPosition = stepPosition + Vector3.forward * distanceBetweenSteps * 3;
+                
+                Destroy(GameObject.FindWithTag("FinishStep"));
+                
+                CreateRoadComplex(stepPosition);
+                CreateFinishComplex(newPosition);
+                
+                isRoadUpdated = true;
+            }
         }
+        
     }
     
     
@@ -111,8 +120,6 @@ public class WorldMaker : MonoBehaviour
     {
         Instantiate(finishStep, pStartPosition, finishStep.transform.rotation); 
     }
-
-
 
     void DestroySteps(string tagForSearch)
     {

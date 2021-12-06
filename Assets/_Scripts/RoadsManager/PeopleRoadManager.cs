@@ -55,8 +55,7 @@ public class PeopleRoadManager : MonoBehaviour
         positionY = transform.position.y + transform.localScale.y/ 2F + personToEat.transform.lossyScale.y/ 2F;
         newPersonToEatColor = GameManager.Instance.GetColorForPeopleToEat();
         newPersonToAvoidColor = GameManager.Instance.GetColorForPeopleToAvoid();
-        Debug.Log(("Got eat color from Manager: "+ newPersonToEatColor));
-      SpawnGroups();
+        SpawnGroups();
      }
 
 
@@ -78,12 +77,9 @@ public class PeopleRoadManager : MonoBehaviour
         foreach (var person in peopleToEat)
         {
             if (person.transform.position.z >= ZMinEdgeForInstantiation-instantiationOffsetRange  &&
-                person.transform.position.z <= ZMaxEdgeForInstantiation + instantiationOffsetRange)    // multiply for 1.2 just for avoid possible errors 
+                person.transform.position.z <= ZMaxEdgeForInstantiation + instantiationOffsetRange)  
             {
                 person.gameObject.GetComponent<Renderer>().material.color = newPersonToEatColor;
-                Debug.Log("the new persontoeat  color is " +
-                          person.gameObject.GetComponent<Renderer>().material.color);
-                
             }
             
         }
@@ -100,23 +96,17 @@ public class PeopleRoadManager : MonoBehaviour
             if (switcher.transform.position == switcherColorPosition)
             {
                 switcher.gameObject.GetComponent<Renderer>().material.color = newPersonToEatColor;
-                Debug.Log("the new switch color is " +
-                          switcher.gameObject.GetComponent<Renderer>().material.color);
+                
             }
         }
-
-
-
+        
         GameObject[] peopleToAvoid = GameObject.FindGameObjectsWithTag("toAvoidPeople");
-        Debug.Log(newPersonToAvoidColor);
-        foreach (var person in peopleToAvoid)
+       foreach (var person in peopleToAvoid)
         {
             person.gameObject.GetComponent<Renderer>().material.color = newPersonToAvoidColor;
         }
 
     }
-    
-    
     
     private void  SpawnPeopleInPlace(Vector3 pGroupPosition)
     {

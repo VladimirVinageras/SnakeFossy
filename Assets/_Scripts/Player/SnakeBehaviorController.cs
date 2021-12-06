@@ -68,7 +68,7 @@ public class SnakeBehaviorController : MonoBehaviour
 
         if (GameManager.Instance.SnakeHasToGrow)
         {
-            Debug.Log("Snake has to GRow");
+            
             int posBeforeTail = _snake.Count - 1;
             int tailPos = _snake.Count;
             if (_snake.Count <= visibleSnakeLenght)

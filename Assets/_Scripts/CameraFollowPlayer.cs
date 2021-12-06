@@ -5,11 +5,11 @@ using UnityEngine;
 public class CameraFollowPlayer : MonoBehaviour
 {
      
-    private Rigidbody player;
+    private Rigidbody _player;
     [SerializeField]
-    private Vector3 offset = new Vector3(0,20,-20);
+    private Vector3 _offset = new Vector3(0,20,-20);
 
-    private float deltaXpos;
+    private float _deltaXpos;
     void Start()
     {
         
@@ -17,14 +17,14 @@ public class CameraFollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!player)
+        if (!_player)
         {
-            player = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
+            _player = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
         }
 
-        deltaXpos = transform.position.x - player.transform.position.x;
-        this.transform.position = player.transform.position + offset;
-        transform.Translate(Vector3.right * deltaXpos);
+        _deltaXpos = transform.position.x - _player.transform.position.x;
+        this.transform.position = _player.transform.position + _offset;
+        transform.Translate(Vector3.right * _deltaXpos);
     }
 
 }

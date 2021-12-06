@@ -1,10 +1,10 @@
 {
-    "m_SelectedDeviceId": "RF8N40DB89N",
+    "m_SelectedDeviceId": "R9AM91G9GRJ",
     "m_SelectedPackage": {
-        "deviceId": "RF8N40DB89N",
+        "deviceId": "R9AM91G9GRJ",
         "name": "com.DefaultCompany.Snake_Fossy",
-        "processId": 6848,
-        "exited": true
+        "processId": 27958,
+        "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
@@ -90,6 +90,30 @@
             "deviceId": "R9AM91G9GRJ",
             "name": "com.DefaultCompany.Snake_Fossy",
             "processId": 30698,
+            "exited": false
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 21755,
+            "exited": false
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 22554,
+            "exited": false
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 26618,
+            "exited": false
+        },
+        {
+            "deviceId": "R9AM91G9GRJ",
+            "name": "com.DefaultCompany.Snake_Fossy",
+            "processId": 27958,
             "exited": false
         },
         {

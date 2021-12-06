@@ -98,10 +98,9 @@ public class PeopleRoadManager : MonoBehaviour
                 switcher.gameObject.GetComponent<Renderer>().material.color = newPersonToEatColor;
                 
             }
-        }
-        
+        } 
         GameObject[] peopleToAvoid = GameObject.FindGameObjectsWithTag("toAvoidPeople");
-       foreach (var person in peopleToAvoid)
+        foreach (var person in peopleToAvoid)
         {
             person.gameObject.GetComponent<Renderer>().material.color = newPersonToAvoidColor;
         }

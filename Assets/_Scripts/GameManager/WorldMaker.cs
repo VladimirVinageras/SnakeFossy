@@ -3,34 +3,32 @@ using Vector3 = UnityEngine.Vector3;
 
 public class WorldMaker : MonoBehaviour
 {
-    [SerializeField] private GameObject startStep; 
-    [SerializeField] private GameObject peopleRoadStep;
-    [SerializeField] private GameObject diamondRoadStep;
-    [SerializeField] private GameObject finishStep;
-    [SerializeField] private GameObject plane;
-   
+    [SerializeField] private GameObject startStep,
+                                        peopleRoadStep,
+                                        diamondRoadStep,
+                                        finishStep,
+                                        plane;
 
-    private Rigidbody _rigidbodyPlayer;
-    
     [Range(0,5)] [SerializeField] private float distanceWaterFromRoad;
     [Range(0,10)] [SerializeField] private float aceptableDistanceToDestroySteps;
+
+    private float distanceBetweenSteps;
+    private bool isFinishCreated, isRoadUpdated;
+    private Vector3 stepPosition, waterPlanePosition ;
 
     private int
         planeCounter = 0,
         roadComplexCounter = 0;
-    
-    private float distanceBetweenSteps;
 
-    private bool isFinishCreated, isRoadUpdated;
-
-    private Vector3 stepPosition, waterPlanePosition ;
-     
+    private Rigidbody _rigidbodyPlayer;
     
     void Start()
     {
         waterPlanePosition = Vector3.down * (distanceWaterFromRoad + plane.transform.lossyScale.z/2);
-        float distanceBetweenStartStepAndFirstStep =
-            startStep.transform.lossyScale.z / 2 + peopleRoadStep.transform.lossyScale.z / 2;
+        
+        float distanceBetweenStartStepAndFirstStep = startStep.transform.lossyScale.z / 2 + 
+                                                     peopleRoadStep.transform.lossyScale.z / 2;
+        
         CreateStartStep(Vector3.zero);
         for (int i = 0; i < 2; i++)
         {
@@ -38,7 +36,7 @@ public class WorldMaker : MonoBehaviour
         }
         Vector3 complexStartPosition = Vector3.forward * distanceBetweenStartStepAndFirstStep;
         CreateRoadComplex(complexStartPosition);
-      _rigidbodyPlayer = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
+        _rigidbodyPlayer = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -72,7 +70,6 @@ public class WorldMaker : MonoBehaviour
                 isFinishCreated = true;
                
             }
-
            if (GameManager.Instance.RushCounter >= 3 && !isRoadUpdated)
             {
                 stepPosition = stepPosition + Vector3.forward * distanceBetweenSteps;
@@ -103,7 +100,6 @@ public class WorldMaker : MonoBehaviour
        
         
     }
-
     void CreateRoadComplex(Vector3 pStartPosition)
     {
         distanceBetweenSteps = peopleRoadStep.transform.lossyScale.z / 2 + diamondRoadStep.transform.lossyScale.z / 2;
@@ -111,16 +107,12 @@ public class WorldMaker : MonoBehaviour
         Instantiate(peopleRoadStep, pStartPosition, peopleRoadStep.transform.rotation);   // First Road
         Instantiate(diamondRoadStep, stepPosition, diamondRoadStep.transform.rotation);   //Second Road 
         stepPosition = pStartPosition + Vector3.forward * distanceBetweenSteps * 2;
-        Instantiate(peopleRoadStep, stepPosition, peopleRoadStep.transform.rotation);
-        
+        Instantiate(peopleRoadStep, stepPosition, peopleRoadStep.transform.rotation);     //Third Road
     }
-
-
     void CreateFinishComplex(Vector3 pStartPosition)
     {
         Instantiate(finishStep, pStartPosition, finishStep.transform.rotation); 
     }
-
     void DestroySteps(string tagForSearch)
     {
         GameObject[] roadStepsToDestroy = GameObject.FindGameObjectsWithTag(tagForSearch);
@@ -144,7 +136,6 @@ public class WorldMaker : MonoBehaviour
         }
         
     }
-
     void DestroyGameElements(string tagForSearch)
     {
         GameObject[] elementsToDestroy = GameObject.FindGameObjectsWithTag(tagForSearch);
@@ -155,7 +146,6 @@ public class WorldMaker : MonoBehaviour
         }
 
     }
-
     void DestroyPlanes()   //A special function for planes. The scale of planes is x10. 
     {
         GameObject[] elementsToDestroy = GameObject.FindGameObjectsWithTag("Plane");
@@ -164,10 +154,5 @@ public class WorldMaker : MonoBehaviour
             if(_rigidbodyPlayer.transform.position.z > element.transform.position.z + element.transform.lossyScale.z/2 * 10 + aceptableDistanceToDestroySteps) 
                 Destroy(element);
         }
-
-        
     }
-
-
-
 }

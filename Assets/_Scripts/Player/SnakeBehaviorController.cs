@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class SnakeBehaviorController : MonoBehaviour
 {
-   [SerializeField] private GameObject
+    private List<Vector3> _pPreviousSnakePosition;    
+    private List<GameObject> _snake;
+    private Transform 
+        snakeRing, 
+        previousSnakeRing ;
+    
+    private Vector3 lookDirection;
+
+    [SerializeField] private GameObject
         _snakeHead,
         _snakeBody,
         _snakeTail;
@@ -15,24 +23,13 @@ public class SnakeBehaviorController : MonoBehaviour
        maxDistanceBetweenSteps = 0.8F, 
        multiplierToManageDistanceBetweenRings = 1.34F,
        rushMultiplierToManageDistanceBetweenRings = 4.02F;
-   
-   
-    
-    public float 
+  
+   public float 
         distanceBetweenRings, 
-        indexOffsetBetweenRing = 1.34F;  //indexOffsetdecrease distance between snake rings
+        indexOffsetBetweenRings = 1.34F;     //indexOffsetBetweenRings  decrease distance between snake rings
 
-    private List<Vector3> _pPreviousSnakePosition;    
-    private List<GameObject> _snake;
-    
    
-    Vector3 lookDirection;
-    
-    private Transform 
-        snakeRing, 
-        previousSnakeRing ;
-    
-    void Start()
+   void Start()
     {
         _snake = new List<GameObject>();
         _snake.Add(_snakeHead);
@@ -48,8 +45,13 @@ public class SnakeBehaviorController : MonoBehaviour
             snakeRing = _snake[i].transform;
             previousSnakeRing = _snake[i-1].transform;
             lookDirection = (previousSnakeRing.position - snakeRing.position);
-            snakeRing.transform.Translate(lookDirection * Time.deltaTime * followSpeed * indexOffsetBetweenRing);
+            snakeRing.transform.Translate(lookDirection *
+                                          Time.deltaTime * 
+                                          followSpeed * 
+                                          indexOffsetBetweenRings);
+            
             distanceBetweenRings = Math.Abs(previousSnakeRing.lossyScale.z/2 - snakeRing.lossyScale.z/2);
+            
             if (distanceBetweenRings > maxDistanceBetweenSteps)
             {
                 snakeRing.position = new Vector3(snakeRing.position.x, snakeRing.position.y,
@@ -59,11 +61,11 @@ public class SnakeBehaviorController : MonoBehaviour
 
         if (GameManager.Instance.IsFeverRush)
         {
-            indexOffsetBetweenRing = rushMultiplierToManageDistanceBetweenRings;
+            indexOffsetBetweenRings = rushMultiplierToManageDistanceBetweenRings;
         }
         else
         {
-            indexOffsetBetweenRing = multiplierToManageDistanceBetweenRings;
+            indexOffsetBetweenRings = multiplierToManageDistanceBetweenRings;
         }
 
         if (GameManager.Instance.SnakeHasToGrow)
@@ -75,6 +77,7 @@ public class SnakeBehaviorController : MonoBehaviour
             {
                 GameObject newRing = Instantiate(_snakeBody, _snakeTail.transform.position,
                     _snakeTail.transform.rotation);
+             
                 newRing.gameObject.transform.SetParent(this.transform);
                 _snake.Insert(posBeforeTail, newRing);
                 _snake[tailPos].gameObject.transform.Translate(Vector3.back * distanceBetweenRings);

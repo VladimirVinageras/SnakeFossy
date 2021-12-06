@@ -17,7 +17,7 @@ public class ColorSwitch : MonoBehaviour
         }
         if (other.CompareTag("SnakeTail")) 
         {
-        GameObject.FindWithTag("SnakeTail").GetComponent<Renderer>().material.color = newSnakeColor;
+            GameObject.FindWithTag("SnakeTail").GetComponent<Renderer>().material.color = newSnakeColor;
         }
     }
     

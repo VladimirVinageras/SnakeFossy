@@ -6,7 +6,7 @@ using Debug = UnityEngine.Debug;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float gameTimer; // 20 seconds level if player speed is 6
+    [SerializeField] private float gameTimer; // 20 seconds level if player speed is 7
     [SerializeField] private List<Color> toEatColors;
     [SerializeField] private List<Color> toAVoidColors;
     private int сolorToEatListPointer = 0;
@@ -25,10 +25,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI diamondsScore;
     public TextMeshProUGUI peopleScore;
     public TextMeshProUGUI gameOverText;
-    public GameObject wellDoneScreen;
-    public GameObject gameOverScreen;
-    public GameObject controlsScreen;
-    public GameObject restartButton;
+    public GameObject wellDoneScreen,
+                      gameOverScreen,
+                      controlsScreen, 
+                      restartButton;
 
     public bool IsTimeOut => isTimeOut;
     public bool IsFeverRush
@@ -36,25 +36,26 @@ public class GameManager : MonoBehaviour
         get => isFeverRush;
         set => isFeverRush = value;
     }
-
     public int RushCounter => rushCounter;
-
-
     public bool SnakeHasToGrow
     {
         get => hasSnakeToGrow;
         set => hasSnakeToGrow = value;
     }
-    
-    
-    public static GameManager Instance { get; private set;}
+
+    public static GameManager Instance
+    {
+        get; private set;
+    }
     
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
-        } else {
+        } 
+        else 
+        {
             Instance = this;
         }
         
@@ -62,10 +63,8 @@ public class GameManager : MonoBehaviour
     
     public void Start()
     {
-     StartGame();  
-     
+     StartGame();
     }
-
 
     public void StartGame()
     {
@@ -74,19 +73,16 @@ public class GameManager : MonoBehaviour
         сolorToAvoidListPointer = 0;
         gameOverScreen.SetActive(false);
         wellDoneScreen.SetActive(false);
-       // controlsScreen.SetActive(true);   //Check enable if is active another variant of controls in player controller
+        // controlsScreen.SetActive(true);   //Check enable if is active another variant of controls in player controller
         restartButton.gameObject.SetActive(false);
-        diamondsScore.text = "0" ;
+        diamondsScore.text = "0";
         peopleScore.text = "0";
         peopleCounter = 0;
         diamondCounter = 0;
         rushCounter = 0;
         Time.timeScale = 1;
         StartCoroutine("GameCountdown");
-        
-        
     }
-
     public void GameOver()
     {
         restartButton.gameObject.SetActive(true);
@@ -94,7 +90,6 @@ public class GameManager : MonoBehaviour
         controlsScreen.SetActive(false);
         Time.timeScale = 0;
     }
-    
     public void WellDone()
     {
         restartButton.gameObject.SetActive(true);
@@ -102,39 +97,25 @@ public class GameManager : MonoBehaviour
         wellDoneScreen.SetActive(true);
         Time.timeScale = 0;
     }
-
-
-    
     public void UpdateDiamondScore(int scoreToAdd)
     {
         diamondCounter += scoreToAdd;
         diamondsScore.text = diamondCounter.ToString();
     }
-
     public void RestartDiamondScore()
     {
         diamondCounter = 0;
         diamondsScore.text = diamondCounter.ToString();
     }
-
     public void UpdatePeopleScore(int scoreToAdd)
     {
         peopleCounter += scoreToAdd;
         peopleScore.text = peopleCounter.ToString();
     }
-
     public void UpdateRushCounter()
     {
         rushCounter++;
     }
-
-    
-    IEnumerator GameCountdown()
-    {
-        yield return new WaitForSeconds(gameTimer);
-        isTimeOut = true;
-    }
-
     public Color GetColorForPeopleToEat()
     {
         if ( сolorToEatListPointer >= toEatColors.Count )
@@ -145,8 +126,7 @@ public class GameManager : MonoBehaviour
         сolorToEatListPointer++;
         return pColorToEat;
     }
-
-        public Color GetColorForPeopleToAvoid()
+    public Color GetColorForPeopleToAvoid()
     {
         if (сolorToAvoidListPointer >=toAVoidColors.Count )
         {
@@ -155,5 +135,11 @@ public class GameManager : MonoBehaviour
         Color pColorToAvoid = toAVoidColors[сolorToAvoidListPointer];
         сolorToAvoidListPointer++;
         return pColorToAvoid;
+    }
+    
+    IEnumerator GameCountdown()
+    {
+        yield return new WaitForSeconds(gameTimer);
+        isTimeOut = true;
     }
 }

@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
                 {
                     transform.position +=
                         Vector3.right *
-                        (touch.deltaPosition.x * _playerMoveLateralSpeed * Time.deltaTime); // _playerMoveLateralSpeed *
+                        (touch.deltaPosition.x * _playerMoveLateralSpeed * Time.deltaTime);  
 
                 }
             }
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.transform.position += snakePosition * Time.deltaTime;
         }
- #else
+#else
          snakePosition = transform.forward * _playerMoveForwardSpeed;
          if (!isFeverRush)
          {
@@ -103,11 +103,6 @@ public class PlayerController : MonoBehaviour
          
          transform.position += Vector3.forward * _playerMoveForwardSpeed * Time.deltaTime;
          CheckBounds();
-
-
-
-
-
 #endif
         
         
@@ -170,6 +165,11 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    void FeverRush()
+    {
+        transform.position = new Vector3(roadXPosition, transform.position.y,transform.position.z);
+        _playerMoveForwardSpeed *= 3;
+    }
     
     IEnumerator FeverRushCountdown()
     {
@@ -181,10 +181,6 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void FeverRush()
-    {
-        transform.position = new Vector3(roadXPosition, transform.position.y,transform.position.z);
-        _playerMoveForwardSpeed *= 3;
-    }
+
 
 }
